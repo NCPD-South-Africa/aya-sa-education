@@ -290,7 +290,7 @@ This project builds on the incredible work of:
 - **Cohere for AI** for creating and open-sourcing Aya 23
 - **Our contributors** who make this possible
 
-Special thanks to educators and students who pilot and provide feedback.
+Special thanks to educators, students and learners who pilot and provide feedback.
 
 ---
 
