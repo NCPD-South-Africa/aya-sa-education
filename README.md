@@ -8,7 +8,7 @@
 
 ## 🎯 Mission
 
-To democratize access to quality AI-powered education across South Africa by providing a multilingual, curriculum-aligned learning assistant that respects our linguistic diversity and cultural context.
+To democratise access to quality AI-powered education across South Africa by providing a multilingual, curriculum-aligned learning assistant that respects our linguistic diversity and cultural context.
 
 ## ✨ Key Features
 
@@ -228,7 +228,7 @@ This project is currently seeking funding to support:
 - **Google.org** (AI for education grants)
 - **Local CSI Programs** (Naspers, MTN, Standard Bank)
 
-Interested in funding this work? Contact us at funding@sa-edu-llm.org
+Interested in funding this work? Contact us at llm-funding@ncpd.org.za
 
 ### Budget Transparency
 
