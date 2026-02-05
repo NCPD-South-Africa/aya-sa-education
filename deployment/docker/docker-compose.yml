@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  sa-edu-llm:
+    build:
+      context: ../..
+      dockerfile: deployment/docker/Dockerfile
+    container_name: sa-edu-llm
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../../models:/app/models
+      - ../../data:/app/data
+      - ../../logs:/app/logs
+    environment:
+      - MODEL_PATH=/app/models/aya-23-8b
+      - MAX_TOKENS=2048
+      - TEMPERATURE=0.7
+      - LOG_LEVEL=INFO
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
+    networks:
+      - sa-edu-network
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    networks:
+      - sa-edu-network
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=changeme
+    networks:
+      - sa-edu-network
+    depends_on:
+      - prometheus
+
+networks:
+  sa-edu-network:
+    driver: bridge
+
+volumes:
+  prometheus_data:
+  grafana_data:
