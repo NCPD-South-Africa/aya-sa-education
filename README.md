@@ -49,7 +49,7 @@ We're currently seeking:
 
 ```bash
 # Clone the repository
-git clone https://github.com/[your-org]/aya-sa-education.git
+git clone https://github.com/NCPD-South-Africa/aya-sa-education.git
 cd aya-sa-education
 
 # Set up Python environment
